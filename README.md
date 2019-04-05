@@ -7,4 +7,5 @@ Community. Mentoring. Code. Pairing. Low-Commitment.
 Dev Together is a people-first community focused on mentoring early-career developers (Mentees) by connecting them with experienced professionals (Mentors) via low-commitment, high-value and in-person events.
 
 https://devtogether.co/chapters/madison
+
 https://www.meetup.com/DevTogetherMad
