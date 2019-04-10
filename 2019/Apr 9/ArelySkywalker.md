@@ -6,4 +6,4 @@ def awesomePerson(you):
     while(true):
         be(amazing)
 ```
-**[Meetup: Dev Together Madison](https://www.meetup.com/DevTogetherMad/)** | @DevTogetherMad | **[Meetup: Dev Together Madison](https://devtogether.co/)**
+**[Meetup: Dev Together Madison](https://www.meetup.com/DevTogetherMad/)** | @DevTogetherMad | **[https://devtogether.co](https://devtogether.co/)**
