@@ -15,7 +15,7 @@ This repo contains materials around very basic information around source control
 Read through the [presentation](https://docs.google.com/presentation/d/1o78CV_huVXuK9IWuLFwoLwQeXjwNLf_wGkF5tnlgrRY/edit?usp=sharing) to get familiar with common source control and Git terminologies.
 
 ## Exercises
-The presentation above will reference exercises. See our [exercises document](https://docs.google.com/document/d/16dnIDTfK8z90tzZrOYw0byQB_VrTtoYlz5suTx7dj0I/edit?usp=sharing).
+The presentation above will reference exercises. See our exercises in our Issues section.
 
 # Help
 
