@@ -1,5 +1,6 @@
 # Source Control Basics
 [View in presentation form](https://docs.google.com/presentation/d/1o78CV_huVXuK9IWuLFwoLwQeXjwNLf_wGkF5tnlgrRY) 
+
 ## Topics Covered
 * Source Control - What, Why, Benefits for Individuals and Teams
 * What is Git? What is a commit? How to commit? Best practices when doing commits.
@@ -24,7 +25,8 @@ Source control can be useful to individual coders, large teams, and everyone in 
 
 ## Development Workflow for Individuals
 This is a typical individual development workflow without source control:
-**/source-control-basics/workflow-without-scm.png IMAGE HERE**
+![Diagram showing typical developer workflow without source control](./images/workflow-without-scm.png "Typical individual developer workflow without source control")
+
 
 As you can see, the developer pushes code right to production.
 
@@ -41,7 +43,7 @@ There are some crucial problems with this pattern:
 
 ## Development Workflow for Teams without Source Control
 This is a typical team development workflow without source control:
-**/source-control-basics/workflow-without-scm-team.png IMAGE HERE**
+![Diagram showing typical team workflow without source control](./images/workflow-without-scm-team.png "Typical team workflow without source control")
 
 As you can see, Developers A and B both make changes to the codebase on their local machines and then push to production.
 
@@ -54,7 +56,7 @@ There are some crucial problems with this pattern:
 
 ## Development Workflow for Teams with Source Control
 This is a typical team development workflow with source control:
-**/source-control-basics/workflow-with-scm-team.png IMAGE HERE**
+![Diagram showing typical team workflow with source control](./images/workflow-with-scm-team.png "Typical team workflow with source control")
 
 As you can see, Developers A and B now save their changes in the source control system, which tracks who, what, when, and why. Since their code is now easily shared, they can create a build from the combined product of all their changes and test it in one or more environments.
 
@@ -123,7 +125,7 @@ A commit can contain one to a zillion changes and a project can have one to a zi
 
 ## Basic Git Workflow
 This is the typical development workflow with Git:
-**/source-control-basics/basic-git-workflow.png IMAGE HERE**
+![Diagram showing typical development workflow with Git](./images/basic-git-workflow.png "Typical development workflow with Git")
 
 Let's go through this step-by-step.
 1. Developer uses `git clone` to clone the remote repo into their local workspace. `git clone` creates a new, local repo on your machine that's a copy of the remote repo.
@@ -147,6 +149,15 @@ Once the changes have been tested and are ready to go, we create a **pull reques
 
 When the maintainer "accepts" our **PR**, the changes are merged into the remote codebase and the PR is considered complete.
 
+## Why Branch?
+* Keeps `master` branch stable so un-tested and buggy code doesn't accidentally go into production
+* Prevents bugs/un-tested/code not ready for production from impacting other developers' work
+* Groups related work into a single unit, which makes it easier to understand
+* Allows code experiements that are easy to discard or integrate into production
+* Can capture snapshots of production releases showing what was in a given release
+* Improves confidence that production hotfixes won't break production, even if development has continued since the last release
+* Allows developers to share a unit of work with other developers before it's ready to go to production
+
 ## Basic Branching Terms
 |                         |                                           |
 | ----------------------- | ----------------------------------------- |
@@ -161,3 +172,28 @@ When the maintainer "accepts" our **PR**, the changes are merged into the remote
 | `git checkout <branchname>` | Switches to the existing local branch called `branchname` |
 | `git fetch` | Retrieves, but does not **merge**, code and metadata changes from the remote repository. **Metadata** changes include things like the list of branches that exist in the remote repository. |
 | `git pull` | Retrieves and automatically **merges** changes from the remote repository. |
+
+## Basic Branching Workflow
+This is the typical Git branching workflow:
+![Git branching workflow diagram](./images/basic-git-branching-workflow.png "Typical Git branching workflow")
+
+Let's break it down step-by-step:
+1. Developer **clones** the remote repository
+2. Developer uses `git checkout -b <branchname>` to **create a new branch** that is a copy of the `master` branch
+3. Developer adds, updates, moves, and deletes files
+4. Developer uses `git add <file>` to **stage changes** for the next commit
+5. Developer uses `git commit -m "Commit message"` to **create a new commit** with all the staged changes
+6. Developer uses `git push` to **push all new commits** in the local repository's `branchname` branch to the remote repository's `branchname` branch. If `branchname` doesn't exist in the remote repository, it's automatically created.
+7. Developer **creates a new pull request (PR)** from `branchname` to `master` so the project maintainer knows there are changes waiting to be merged in to `master`.
+8. When the project maintainer **accepts the PR**, the changes in `branchname` are merged to `master`
+9. The next time the developer does a `git pull`, the updates that are now in `master` are merged down to the local repository
+
+## Branching Strategies
+Branching strategies are often a topic of much discussion and consternation. There are quite a few branching strategies, and all of them have pros and cons. One strategy is to create branches prefixed with `/feature/` when working on new feature code and `/bug/` when working on a bugfix. This helps keep all of the branches organized, and the project maintainer will know whether they're merging a bugfix or a feature when reviewing PRs.
+
+# Forking Workflow
+**"Forking"** is when you create a copy of an entire remote repository, including all of its branches. Forking is a platform (GitHub, BitBucket, etc) feature. Developers create a fork when they:
+* Want to make changes in a project where they aren't implicitly trusted, via a PR
+* Want to experiment with a codebase they do not own
+
+To create a fork, navigate to the GitHub page of the project you want to fork, [such as this one](https://github.com/steveperkins/dev-together-workshop-github-basics), and click the gray **Fork** button at the top of the page. This creates a copy of the entire project repository, but in your own account, where you're free to create branches, delete code, update files, etc. When you're ready to ask the project's maintainer to incorporate your changes, you'll create a pull request and they'll approve it.
