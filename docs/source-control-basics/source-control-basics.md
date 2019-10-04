@@ -63,9 +63,9 @@ As you can see, Developers A and B now save their changes in the source control 
 ### Why Use Source Control as a Team?
 * Each dev can make changes without impacting other devs (via branching)
 * The SCM's code versioning allows everyone to:
-** Share and identify changes easily
-** Detect and resolve change conflicts
-** Determine when someone else has made changes to code they've also changed
+  * Share and identify changes easily
+  * Detect and resolve change conflicts
+  * Determine when someone else has made changes to code they've also changed
 * Code history becomes clear - who, what, when, and why are always known
 * Combined change product can be easily built and deployed to one or more environments - usually so more testing can be performed before going to production
 * Production deployments can be rolled back to the previous version with confidence
@@ -89,7 +89,7 @@ The commit message is a note that we'll use to help answer the **why?** question
 ## Best Practices for Commits
 A commit can contain one to a zillion changes and a project can have one to a zillion commits, so it's important to keep your commits organized. Here are some best practices for organizing your commits:
 * Commit related changes together
-** Grouping related work into a single commit makes it easier to understand the *why* when we're looking at them later
+  * Grouping related work into a single commit makes it easier to understand the *why* when we're looking at them later
 * Commit often
   * Frequent commits forces us to make smaller commits and ensures work is being saved incrementally
   * It's easier to understand the commit history when the commits don't have as much code to look through
@@ -122,6 +122,12 @@ A commit can contain one to a zillion changes and a project can have one to a zi
 | `git add <file>` | Adds changed or new files to the index. Also called "staging" a file. |
 | `git status` | Shows the current state of your workspace vs your local repository, including which files have changed. |
 | `git push` | Pushes commits from your local repo to the equivalent remote repo. |
+### "Undo" Commands
+|||
+| ----------------------- | ----------------------------------------- |
+| `git reset <filename>` | Destroys local changes to `filename` |
+| `git reset` | Blows away all local changes |
+| `git revert <commit hash>` | Un-does the commit identified by `commit hash` by inverting it and committing the inverted changes |
 
 ## Basic Git Workflow
 This is the typical development workflow with Git:
