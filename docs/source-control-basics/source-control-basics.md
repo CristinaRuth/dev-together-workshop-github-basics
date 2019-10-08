@@ -159,7 +159,7 @@ When the maintainer "accepts" our **PR**, the changes are merged into the remote
 * Keeps `master` branch stable so un-tested and buggy code doesn't accidentally go into production
 * Prevents bugs/un-tested/code not ready for production from impacting other developers' work
 * Groups related work into a single unit, which makes it easier to understand
-* Allows code experiements that are easy to discard or integrate into production
+* Allows code experiments that are easy to discard or integrate into production
 * Can capture snapshots of production releases showing what was in a given release
 * Improves confidence that production hotfixes won't break production, even if development has continued since the last release
 * Allows developers to share a unit of work with other developers before it's ready to go to production
