@@ -187,7 +187,7 @@ Let's break it down step-by-step:
 1. Developer **clones** the remote repository
 2. Developer uses `git checkout -b <branchname>` to **create a new branch** that is a copy of the `master` branch
 3. Developer adds, updates, moves, and deletes files
-4. Developer uses `git add <file>` to **stage changes** for the next commit
+4. Developer uses `git add <file>` to **stage changes** for the next commit (for a single file) and `git add .` to **stage all changes** at once
 5. Developer uses `git commit -m "Commit message"` to **create a new commit** with all the staged changes
 6. Developer uses `git push` to **push all new commits** in the local repository's `branchname` branch to the remote repository's `branchname` branch. If `branchname` doesn't exist in the remote repository, it's automatically created.
 7. Developer **creates a new pull request (PR)** from `branchname` to `master` so the project maintainer knows there are changes waiting to be merged in to `master`.
